@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: node-artifact-test-gitops
+  description: This is GitOps manifest for node-artifact-test   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: node-artifact-test
+    backstage.io/kubernetes-id: node-artifact-test 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: node-artifact-test   
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:node-artifact-test
